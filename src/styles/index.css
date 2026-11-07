@@ -1,0 +1,106 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+#quote-print {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #quote-print,
+  #quote-print * {
+    visibility: visible !important;
+  }
+
+  #quote-print {
+    position: absolute;
+    inset: 0;
+    display: block !important;
+    width: 100%;
+    color: #172033;
+    background: white;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+  }
+
+  .quote-print-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 3px solid #0a0f3d;
+    padding-bottom: 14px;
+  }
+
+  .quote-print-header h1 {
+    margin: 0 0 5px;
+    color: #0a0f3d;
+    font-size: 18pt;
+  }
+
+  .quote-print-header p,
+  .quote-print-footer p {
+    margin: 4px 0;
+  }
+
+  .quote-print-section {
+    margin-top: 22px;
+    break-inside: avoid;
+  }
+
+  .quote-print-section h2 {
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d9deea;
+    color: #0a0f3d;
+    font-size: 12pt;
+  }
+
+  .quote-print-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+
+  .quote-print-grid p {
+    margin: 4px 0;
+    overflow-wrap: anywhere;
+  }
+
+  .quote-print-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .quote-print-table th,
+  .quote-print-table td {
+    border: 1px solid #d9deea;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .quote-print-table th {
+    color: #0a0f3d;
+    background: #f3f5f9;
+  }
+
+  .quote-print-table tfoot th {
+    font-size: 11pt;
+  }
+
+  .quote-print-footer {
+    margin-top: 24px;
+    border-top: 1px solid #d9deea;
+    padding-top: 8px;
+    color: #4b5563;
+    font-size: 8pt;
+  }
+}
